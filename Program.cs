@@ -12,6 +12,24 @@ demande2.PrendreEnCharge();
 
 Console.WriteLine(demande2.Statut); // lit et affiche le nouveau statut
 
+
+/** IReglePriorite regle = new ReglePrioriteUrgente();
+
+int priorite = regle.Calculer(demande1);
+
+Console.WriteLine($"Priorité : {priorite}");
+*/
+
+
+ServicePriorite service = new ServicePriorite(
+    new ReglePrioriteUrgente()
+);
+
+int priorite = service.CalculerPriorite(demande1);
+
+Console.WriteLine($"Priorité : {priorite}");
+
+
 // DemandeSupport demandeInvalide = new DemandeSupport("   ");
 
 
