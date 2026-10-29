@@ -1,0 +1,32 @@
+name: CI SupportHub
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: red
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Recuperer le code
+        uses: actions/checkout@v6
+
+      - name: Installer .NET
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Restaurer les dependances
+        run: dotnet restore SupportHub.Tests/SupportHub.Tests.csproj
+
+      - name: Compiler
+        run: dotnet build SupportHub.Tests/SupportHub.Tests.csproj --configuration Release --no-restore
+
+      - name: Executer les Tests
+        run: dotnet test SupportHub.Tests/SupportHub.Tests.csproj --configuration Release --no-build
