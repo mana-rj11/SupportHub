@@ -5,7 +5,11 @@ app.MapGet("/", () => "Bienvenue dans SupportHub");
 
 app.MapGet("/demandes/exemple", () =>
 {
-    DemandeSupport demande = new DemandeSupport("Imprimante en panne");
+    CreerDemande creerDemande = new CreerDemande();
+
+    DemandeSupport demande = creerDemande.Executer(
+        "Imprimante en panne"
+    );
 
     return demande;
 });
