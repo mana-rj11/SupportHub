@@ -28,4 +28,18 @@ public class ReglePrioriteTests
             new DemandeSupport(titre);
         });
     }
+
+    [Fact]
+    public void CreationDemande_StatutInitial_EstOuverte()
+    {
+        // Arrange
+        string titre = "Imprimante en panne";
+
+        // Act 
+        DemandeSupport demande = new DemandeSupport(titre);
+
+        // Assert 
+        Assert.Equal("Ouverte", demande.Statut);
+
+    }
 }
