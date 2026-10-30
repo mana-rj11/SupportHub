@@ -9,5 +9,7 @@
 
 <ItemGroup>
   <Compile Remove="SupportHub.Tests/**/*.cs" />
+  <Content Remove="SupportHub.Tests/**" />
+  <None Remove="SupportHub.Tests/**" />
 </ItemGroup>
 </Project>
