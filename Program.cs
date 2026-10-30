@@ -28,7 +28,6 @@ app.MapPost("/demandes", (CreerDemandeRequest request) =>
     {
         return Results.BadRequest(ex.Message);
     }
-    
 });
 
 app.Run();

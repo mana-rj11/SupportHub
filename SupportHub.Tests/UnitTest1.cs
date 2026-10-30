@@ -34,10 +34,8 @@ public class ReglePrioriteTests
     {
         // Arrange
         string titre = "Imprimante en panne";
-
         // Act 
         DemandeSupport demande = new DemandeSupport(titre);
-
         // Assert 
         Assert.Equal("Ouverte", demande.Statut);
 
