@@ -31,3 +31,5 @@ app.MapPost("/demandes", (CreerDemandeRequest request) =>
 });
 
 app.Run();
+
+public partial class Program { }
