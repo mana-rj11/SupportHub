@@ -40,4 +40,42 @@ public class ReglePrioriteTests
         Assert.Equal("Ouverte", demande.Statut);
 
     }
+
+    [Fact]
+    public void AssignerIdentifiant_Valide_EnregistrementIdentifiant()
+    {
+        // Arrange
+        DemandeSupport demande = new DemandeSupport("Panne réseau");
+
+        // Act
+        demande.AssignerIdentifiant(1);
+
+        // Assert
+        Assert.Equal(1, demande.Id);
+    }
+
+    [Fact]
+    public void AssignerIdentifiant_Negatif_leveException()
+    {
+        //Arrange
+        DemandeSupport demande = new DemandeSupport("Panne réseau");
+
+        //Act + Assert
+        Assert.Throws<ArgumentException>(() =>
+            demande.AssignerIdentifiant(-1)
+        );
+    }
+
+    [Fact]
+    public void AssignerIdentifiant_DejaAttribuer_LeveException()
+    {
+        // Arrange
+        DemandeSupport demande = new DemandeSupport("Panne réseau");
+        demande.AssignerIdentifiant(1);
+
+        // Act + Assert
+        Assert.Throws<InvalidOperationException>(() =>
+            demande.AssignerIdentifiant(2)
+        );
+    }
 }
