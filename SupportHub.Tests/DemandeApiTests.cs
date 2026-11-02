@@ -23,4 +23,24 @@ public class DemandeApiTests
             response.StatusCode
         );
     }
+
+    [Fact]
+    public async Task CreationDemande_TitreValide_Retourne201()
+    {
+        // Arrange
+        using var factory = new WebApplicationFactory<Program>();
+        HttpClient client = factory.CreateClient();
+
+        // Act
+        HttpResponseMessage response = await client.PostAsJsonAsync(
+            "/demandes",
+            new { titre = "Imprimante en panne" }
+        );
+
+        // Assert
+        Assert.Equal(
+            System.Net.HttpStatusCode.Created,
+            response.StatusCode
+        );
+    }
 }
