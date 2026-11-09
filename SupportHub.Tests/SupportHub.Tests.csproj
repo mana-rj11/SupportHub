@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SupportHub.csproj" />
+    <ProjectReference Include="../Infrastructure/SupportHub.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
