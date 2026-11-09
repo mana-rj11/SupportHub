@@ -9,7 +9,14 @@
 
 <ItemGroup>
   <Compile Remove="SupportHub.Tests/**/*.cs" />
+  <Compile Remove="Domain/**/*.cs" />
+  <Compile Remove="Application/**/*.cs" />
+  <Compile Remove="Infrastructure/**/*.cs" />
   <Content Remove="SupportHub.Tests/**" />
   <None Remove="SupportHub.Tests/**" />
+</ItemGroup>
+<ItemGroup>
+<ProjectReference Include="Domain/SupportHub.Domain.csproj" />
+<ProjectReference Include="Application/SupportHub.Application.csproj" />
 </ItemGroup>
 </Project>
